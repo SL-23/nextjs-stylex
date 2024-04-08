@@ -32,7 +32,9 @@ const HomeCarousel = () => {
           <p>Seeing Chinese art collections</p>
         </div>
         <div {...stylex.props(styles.fontTwo, styles.animationBase)}>
-          <p>Classic Chinese painting: ink and color on paper</p>
+          <p>
+            Classic Chinese painting: <i>ink and color</i> on paper
+          </p>
         </div>
       </div>
       <div {...stylex.props(styles.dotsContainer)}>

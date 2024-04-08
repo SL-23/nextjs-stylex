@@ -11,13 +11,12 @@ export const styles = stylex.create({
     top: "50%",
   },
   lightStyle: {
-    background: "white",
+    background: "transparent",
     color: "#222222",
-    border: "1px solid #5c5c5c"
+    border: "1px solid #5c5c5c",
   },
   darkStyle: {
     color: "white",
     background: "#222222",
-  }
- 
-})
+  },
+});

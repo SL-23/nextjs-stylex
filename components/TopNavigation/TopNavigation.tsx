@@ -9,6 +9,7 @@ const TopNavigation = () => {
       {sections.map((title) => (
         <a
           {...stylex.props(styles.section)}
+          key={title}
           href={title === "Home" ? "." : `/${title.toLowerCase()}`}
         >
           {title}
