@@ -33,9 +33,6 @@ const styles = stylex.create({
     padding: 0,
   },
   body: {
-    color: `rgba(${$.foregroundR}, ${$.foregroundG}, ${$.foregroundB}, 1)`,
-    backgroundImage: {
-      default: "linear-gradient(to bottom, rgb(214, 219, 220), white)",
-    },
+    backgroundColor: "white",
   },
 });

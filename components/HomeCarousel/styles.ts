@@ -39,7 +39,6 @@ const fontTwoAnimation = stylex.keyframes({
 
 export const styles = stylex.create({
   root: {
-    backgroundImage: "linear-gradient(transparent 20%, red 70%)",
     display: "flex",
     alignItems: "flex-end",
   },
@@ -51,11 +50,10 @@ export const styles = stylex.create({
 
   slidesContainer: {
     display: "block",
-    backgroundImage: "linear-gradient(transparent 20%, red 70%)",
   },
   slide: {
     position: "absolute",
-    top: "10%",
+    top: "8rem",
     left: "10%",
     width: "600px",
     height: "300px",
@@ -64,7 +62,7 @@ export const styles = stylex.create({
   fontOne: {
     position: "absolute",
     left: "2%",
-    top: "30%",
+    top: "25%",
     fontSize: text.h1,
     zIndex: 1,
     color: "black",
@@ -73,7 +71,7 @@ export const styles = stylex.create({
   fontTwo: {
     position: "absolute",
     fontSize: text.h1,
-    top: "40%",
+    top: "30%",
     left: "2%",
     zIndex: 1,
     color: "black",
@@ -89,9 +87,10 @@ export const styles = stylex.create({
     borderRadius: "50%",
   },
   dotsContainer: {
+    position: "relative",
     display: "flex",
+    left: "16rem",
     gap: "0.5rem",
-    position: "absolute",
-    right: "10%",
+    bottom: "1rem",
   },
 });

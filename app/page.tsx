@@ -2,12 +2,13 @@ import stylex from "@stylexjs/stylex";
 import ImageCarousel from "@/components/ImageCarousel/ImageCarousel";
 import React, { useState, useRef } from "react";
 import HomeCarousel from "@/components/HomeCarousel/HomeCarousel";
+import TopNavigation from "@/components/TopNavigation/TopNavigation";
 
 export default function Home() {
   return (
     <main {...stylex.props(styles.main)}>
+      <TopNavigation />
       <div {...stylex.props(styles.container)}>
-        {/* <ImageCarousel /> */}
         <HomeCarousel />
       </div>
     </main>
@@ -16,16 +17,14 @@ export default function Home() {
 
 const styles = stylex.create({
   container: {
-    padding: 16,
-    background: "white",
-    borderRadius: 16,
     width: "100%",
-    height: "400px",
+    height: "480px",
     display: "flex",
     justifyContent: "center",
   },
   main: {
     display: "flex",
+    flexDirection: "column",
     justifyContent: "center",
   },
 });
