@@ -3,6 +3,8 @@ import ImageCarousel from "@/components/ImageCarousel/ImageCarousel";
 import React, { useState, useRef } from "react";
 import HomeCarousel from "@/components/HomeCarousel/HomeCarousel";
 import TopNavigation from "@/components/TopNavigation/TopNavigation";
+import Collections from "@/components/Collections/Collections";
+import CopyrightBanner from "@/components/Copyright/CopyrightBanner";
 
 export default function Home() {
   return (
@@ -11,6 +13,8 @@ export default function Home() {
       <div {...stylex.props(styles.container)}>
         <HomeCarousel />
       </div>
+      <CopyrightBanner />
+      <Collections />
     </main>
   );
 }
