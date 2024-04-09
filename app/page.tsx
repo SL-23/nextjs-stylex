@@ -3,7 +3,6 @@ import stylex from "@stylexjs/stylex";
 import ImageCarousel from "@/components/ImageCarousel/ImageCarousel";
 import React, { useState, useRef } from "react";
 import HomeCarousel from "@/components/HomeCarousel/HomeCarousel";
-import TopNavigation from "@/components/TopNavigation/TopNavigation";
 import Collections from "@/components/Collections/Collections";
 import CopyrightBanner from "@/components/Copyright/CopyrightBanner";
 import ArrowButton from "@/components/ArrowButton/ArrowButton";
@@ -15,8 +14,7 @@ const Home = () => {
     collectionRef && collectionRef.current?.scrollIntoView();
   };
   return (
-    <main {...stylex.props(styles.main)}>
-      <TopNavigation />
+    <div {...stylex.props(styles.root)}>
       <div {...stylex.props(styles.container)}>
         <HomeCarousel />
         <div {...stylex.props(styles.goCollection)}>
@@ -26,20 +24,20 @@ const Home = () => {
       </div>
       <CopyrightBanner />
       <Collections ref={collectionRef} />
-    </main>
+    </div>
   );
 };
 
 const styles = stylex.create({
+  root: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+  },
   container: {
     width: "100%",
     height: "480px",
     display: "flex",
-    justifyContent: "center",
-  },
-  main: {
-    display: "flex",
-    flexDirection: "column",
     justifyContent: "center",
   },
   goCollection: {

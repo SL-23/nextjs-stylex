@@ -1,4 +1,3 @@
-"use client";
 import EastIcon from "@mui/icons-material/East";
 import SouthIcon from "@mui/icons-material/South";
 import WestIcon from "@mui/icons-material/West";
