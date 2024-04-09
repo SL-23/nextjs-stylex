@@ -1,11 +1,27 @@
 import stylex from "@stylexjs/stylex";
 import { styles } from "./styles";
+import { useEffect, useRef, useState } from "react";
 
 const sections = ["Home", "About", "Gallery", "Contact us"];
 
 const TopNavigation = () => {
+  const rootRef = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(true);
+
+  document.addEventListener("scroll", () => {
+    const scrollY = window.scrollY;
+    if (scrollY > 70) setVisible(false);
+    else setVisible(true);
+  });
+
+  useEffect(() => {
+    console.log({ visible });
+  }, [visible]);
   return (
-    <div {...stylex.props(styles.root)}>
+    <div
+      ref={rootRef}
+      {...stylex.props(styles.root, !visible && styles.hideRoot)}
+    >
       {sections.map((title) => (
         <a
           {...stylex.props(styles.section)}

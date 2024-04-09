@@ -47,7 +47,7 @@ const styles = stylex.create({
     fontFamily: "Raleway, sans-serif",
     textDecoration: "underline 3px",
     fontWeight: 200,
-    top: "30rem",
+    top: "25rem",
     right: spacing.md,
     display: "flex",
     alignItems: "center",
