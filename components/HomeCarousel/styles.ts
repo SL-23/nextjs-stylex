@@ -1,62 +1,55 @@
 import { text } from "@/app/globalTokens.stylex";
+import { colors } from "@stylexjs/open-props/lib/colors.stylex";
 import stylex from "@stylexjs/stylex";
 
-const one = stylex.keyframes({
-  "20%": { opacity: 0 },
-});
-
-const two = stylex.keyframes({
-  "0%": { opacity: 0 },
-  "20%": { opacity: 0 },
-  "60%": { opacity: 0 },
-});
-
-const three = stylex.keyframes({
-  "0%": { opacity: 0 },
-  "50%": { opacity: 0 },
-  "70%": { opacity: 0 },
-});
-
-const four = stylex.keyframes({
-  "0%": { opacity: 0 },
-  "70%": { opacity: 0 },
-});
-
-const slideAnimations = [one, two, three, four];
-
 const fontOneAnimation = stylex.keyframes({
-  "0%": { opacity: 0 },
-  "20%": { opacity: 1 },
-  "50%": { opacity: 0 },
-  "100%": { opacity: 0 },
+  "0%": {
+    opacity: 0,
+  },
+  "2%": {
+    opacity: 1,
+    filter: `blur(30px)`,
+  },
+  "5%": {
+    opacity: 1,
+  },
+  "10%": {
+    opacity: 0,
+  },
 });
-const fontTwoAnimation = stylex.keyframes({
-  "0%": { opacity: 0 },
-  "50%": { opacity: 0 },
-  "70%": { opacity: 1 },
-  "100%": { opacity: 0 },
+
+const fadeInAnimation = stylex.keyframes({
+  "0%": {
+    opacity: 0,
+  },
+  "10%": {
+    opacity: 1,
+    filter: `blur(50px)`,
+  },
+  "20%": {
+    opacity: 1,
+  },
 });
 
 export const styles = stylex.create({
   root: {
+    width: "100%",
     display: "flex",
+    flexDirection: "column",
     alignItems: "flex-end",
   },
-  animationBase: {
-    animationDuration: "15s",
-    animationIterationCount: "infinite",
-  },
-  carouselContainer: {},
-
   slidesContainer: {
-    display: "block",
+    display: "flex",
+    width: "100%",
+    flexDirection: "column",
+    alignItems: "flex-start",
   },
   slide: {
     position: "absolute",
     top: "8rem",
-    left: "10%",
+    left: "4rem",
     width: "600px",
-    height: "300px",
+    height: "350px",
     objectFit: "cover",
   },
   fontOne: {
@@ -65,8 +58,10 @@ export const styles = stylex.create({
     top: "25%",
     fontSize: text.h1,
     zIndex: 1,
-    color: "black",
     animationName: fontOneAnimation,
+    animationDuration: "6s",
+    animationFillMode: "forwards",
+    animationIterationCount: 1,
   },
   fontTwo: {
     position: "absolute",
@@ -74,23 +69,36 @@ export const styles = stylex.create({
     top: "30%",
     left: "2%",
     zIndex: 1,
-    color: "black",
-    animationName: fontTwoAnimation,
+
+    animationName: fadeInAnimation,
+    animationFillMode: "forwards",
+    animationIterationCount: 1,
+    animationDelay: "2s",
   },
-  slideAnimation: (i) => ({
-    animationName: slideAnimations[i],
-  }),
+  slideAnimation: {
+    animationName: fadeInAnimation,
+    animationDuration: "6s",
+    animationFillMode: "forwards",
+    animationIterationCount: 1,
+  },
+
+  dotsContainer: {
+    position: "relative",
+    display: "flex",
+    right: "2rem",
+    gap: "0.5rem",
+    top: "90%",
+  },
+  activeDot: {
+    background: colors.gray6,
+    width: "0.5rem",
+    height: "0.5rem",
+    borderRadius: "50%",
+  },
   dot: {
     background: "black",
     width: "0.5rem",
     height: "0.5rem",
     borderRadius: "50%",
-  },
-  dotsContainer: {
-    position: "relative",
-    display: "flex",
-    left: "16rem",
-    gap: "0.5rem",
-    bottom: "1rem",
   },
 });

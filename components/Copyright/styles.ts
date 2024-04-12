@@ -11,6 +11,5 @@ export const styles = stylex.create({
     height: "20rem",
     backgroundColor: colors.gray2,
     padding: "10rem 4rem",
-    color: "black",
   },
 });

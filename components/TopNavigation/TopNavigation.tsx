@@ -1,6 +1,7 @@
+"use client";
 import stylex from "@stylexjs/stylex";
 import { styles } from "./styles";
-import { use, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const sections = ["Home", "About", "Gallery", "Contact us"];
 

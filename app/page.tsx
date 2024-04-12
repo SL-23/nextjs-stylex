@@ -36,7 +36,7 @@ const styles = stylex.create({
   },
   container: {
     width: "100%",
-    height: "480px",
+    height: "600px",
     display: "flex",
     justifyContent: "center",
   },
@@ -49,7 +49,6 @@ const styles = stylex.create({
     right: spacing.md,
     display: "flex",
     alignItems: "center",
-    color: "black",
     gap: spacing.xxs,
     zIndex: 3,
   },

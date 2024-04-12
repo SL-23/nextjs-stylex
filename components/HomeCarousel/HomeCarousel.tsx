@@ -5,43 +5,63 @@ import Flower from "../../public/flower.png";
 import Mountain from "../../public/mountain.png";
 import Eagle from "../../public/eagle.png";
 import Image from "next/image";
+import React, { useEffect, useState } from "react";
 
 const imgSrcArr = [Mountain, Flower, Bird, Eagle];
 
-const CountDot = () => <div {...stylex.props(styles.dot)} />;
+const textItems = (
+  <>
+    <p {...stylex.props(styles.slide, styles.fontOne)}>
+      Seeing Chinese art collections
+    </p>
+    <p {...stylex.props(styles.slide, styles.fontTwo)}>
+      Classic Chinese painting: <i>ink and color</i> on paper
+    </p>
+  </>
+);
+
+const carouselItems = (
+  <>
+    {imgSrcArr.map((img, i) => (
+      <Image
+        key={`img-${i}`}
+        alt={`img-${i}`}
+        src={img}
+        {...stylex.props(styles.slide)}
+      />
+    ))}
+  </>
+);
+
+const CountDot = ({ active }: { active: boolean }) => (
+  <div {...stylex.props(styles.dot, active && styles.activeDot)} />
+);
 
 const HomeCarousel = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const itemArr = React.Children.toArray(carouselItems.props.children);
+
+  useEffect(() => {
+    setInterval(() => {
+      setActiveIndex(activeIndex > 3 ? 0 : activeIndex + 1);
+    }, 6000);
+  }, [activeIndex]);
+
   return (
     <div {...stylex.props(styles.root)}>
-      <div {...stylex.props(styles.carouselContainer)}>
-        <div {...stylex.props(styles.slidesContainer)}>
-          {imgSrcArr.map((img, i) => (
-            <Image
-              key={`img-${i}`}
-              alt={`img-${i}`}
-              src={img}
-              {...stylex.props(
-                styles.slide,
-                styles.animationBase,
-                styles.slideAnimation(i)
-              )}
-            />
-          ))}
+      <div {...stylex.props(styles.slidesContainer)}>
+        <div key={activeIndex} {...stylex.props(styles.slideAnimation)}>
+          {itemArr[activeIndex]}
         </div>
-        <div {...stylex.props(styles.fontOne, styles.animationBase)}>
-          <p>Seeing Chinese art collections</p>
-        </div>
-        <div {...stylex.props(styles.fontTwo, styles.animationBase)}>
-          <p>
-            Classic Chinese painting: <i>ink and color</i> on paper
-          </p>
-        </div>
+        <p {...stylex.props(styles.slide, styles.fontOne)}>
+          Seeing Chinese art collections
+        </p>
       </div>
       <div {...stylex.props(styles.dotsContainer)}>
-        <CountDot />
-        <CountDot />
-        <CountDot />
-        <CountDot />
+        {itemArr.map((item, index) => (
+          <CountDot key={index} active={index === activeIndex} />
+        ))}
       </div>
     </div>
   );

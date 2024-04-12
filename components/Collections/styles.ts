@@ -10,5 +10,6 @@ export const styles = stylex.create({
   title: {
     margin: "1rem",
     fontSize: text.h5,
+    color: "white",
   },
 });

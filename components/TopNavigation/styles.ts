@@ -20,7 +20,7 @@ export const styles = stylex.create({
     fontSize: text.h5,
     color: {
       default: "black",
-      ":hover": "grey",
+      ":hover": colors.gray6,
     },
     textDecoration: "none",
   },
