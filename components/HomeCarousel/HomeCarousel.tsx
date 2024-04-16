@@ -5,46 +5,61 @@ import Flower from "../../public/flower.png";
 import Mountain from "../../public/mountain.png";
 import Eagle from "../../public/eagle.png";
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import FanFlower from "../../public/IMG_3746.png";
+import React, { useEffect, useRef, useState } from "react";
 
-const imgSrcArr = [Mountain, Flower, Bird, Eagle];
+const imgSrcArr = [Mountain, FanFlower, Bird, Eagle];
 
-const textItems = (
+const textItems = [
+  <>Seeing Chinese art collections</>,
   <>
-    <p {...stylex.props(styles.slide, styles.fontOne)}>
-      Seeing Chinese art collections
-    </p>
-    <p {...stylex.props(styles.slide, styles.fontTwo)}>
-      Classic Chinese painting: <i>ink and color</i> on paper
-    </p>
-  </>
-);
+    Classic Chinese painting: <i>ink and color</i> on paper
+  </>,
+];
 
-const carouselItems = (
-  <>
-    {imgSrcArr.map((img, i) => (
-      <Image
-        key={`img-${i}`}
-        alt={`img-${i}`}
-        src={img}
-        {...stylex.props(styles.slide)}
-      />
-    ))}
-  </>
-);
-
-const CountDot = ({ active }: { active: boolean }) => (
-  <div {...stylex.props(styles.dot, active && styles.activeDot)} />
+const CountDot = ({
+  active,
+  onClick,
+}: {
+  active: boolean;
+  onClick: () => void;
+}) => (
+  <div
+    onClick={onClick}
+    {...stylex.props(styles.dot, active && styles.activeDot)}
+  />
 );
 
 const HomeCarousel = () => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [displayText, setDisplayText] = useState([true, false]);
 
-  const itemArr = React.Children.toArray(carouselItems.props.children);
+  const imageRef = useRef<HTMLImageElement>(null);
+
+  useEffect(() => {
+    const imgObserver = new IntersectionObserver((entries) => {
+      console.log(activeIndex, entries[0].intersectionRatio);
+      if (activeIndex % 2 === 0 && entries[0].intersectionRatio === 0) {
+        console.log("SETT");
+        displayText[Math.floor(activeIndex / 2)] = true;
+      } else {
+        setTimeout(() => {
+          const newDisplayText = displayText.fill(false);
+          console.log({ newDisplayText });
+          setDisplayText(newDisplayText);
+        }, 1000);
+      }
+    });
+    imageRef.current && imgObserver.observe(imageRef.current as HTMLElement);
+    return () => {
+      imageRef.current &&
+        imgObserver.unobserve(imageRef.current as HTMLElement);
+    };
+  }, [activeIndex]);
 
   useEffect(() => {
     setInterval(() => {
-      setActiveIndex(activeIndex > 3 ? 0 : activeIndex + 1);
+      setActiveIndex(activeIndex >= 3 ? 0 : activeIndex + 1);
     }, 6000);
   }, [activeIndex]);
 
@@ -52,15 +67,29 @@ const HomeCarousel = () => {
     <div {...stylex.props(styles.root)}>
       <div {...stylex.props(styles.slidesContainer)}>
         <div key={activeIndex} {...stylex.props(styles.slideAnimation)}>
-          {itemArr[activeIndex]}
+          <Image
+            ref={imageRef}
+            key={`img-${activeIndex}`}
+            alt={`img-${activeIndex}`}
+            src={imgSrcArr[activeIndex]}
+            {...stylex.props(styles.slide)}
+          />
         </div>
-        <p {...stylex.props(styles.slide, styles.fontOne)}>
-          Seeing Chinese art collections
-        </p>
+        {displayText[Math.floor(activeIndex / 2)] && (
+          <p {...stylex.props(styles.fontOne)}>
+            {textItems[Math.floor(activeIndex / 2)]}
+          </p>
+        )}
       </div>
       <div {...stylex.props(styles.dotsContainer)}>
-        {itemArr.map((item, index) => (
-          <CountDot key={index} active={index === activeIndex} />
+        {imgSrcArr.map((item, index) => (
+          <CountDot
+            onClick={() => {
+              setActiveIndex(index);
+            }}
+            key={index}
+            active={index === activeIndex}
+          />
         ))}
       </div>
     </div>

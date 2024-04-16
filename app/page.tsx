@@ -1,6 +1,6 @@
 "use client";
 import stylex from "@stylexjs/stylex";
-import ImageCarousel from "@/components/ImageCarousel/ImageCarousel";
+
 import React, { useState, useRef } from "react";
 import HomeCarousel from "@/components/HomeCarousel/HomeCarousel";
 import Collections from "@/components/Collections/Collections";
@@ -36,7 +36,7 @@ const styles = stylex.create({
   },
   container: {
     width: "100%",
-    height: "600px",
+    height: "40rem",
     display: "flex",
     justifyContent: "center",
   },
@@ -45,7 +45,7 @@ const styles = stylex.create({
     fontFamily: "Raleway, sans-serif",
     textDecoration: "underline 3px",
     fontWeight: 200,
-    top: "25rem",
+    top: "36rem",
     right: spacing.md,
     display: "flex",
     alignItems: "center",

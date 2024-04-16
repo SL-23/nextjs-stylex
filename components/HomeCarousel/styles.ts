@@ -4,16 +4,16 @@ import stylex from "@stylexjs/stylex";
 
 const fontOneAnimation = stylex.keyframes({
   "0%": {
-    opacity: 0,
+    opacity: 1,
   },
-  "2%": {
+  "75%": {
     opacity: 1,
     filter: `blur(30px)`,
   },
-  "5%": {
-    opacity: 1,
+  "80%": {
+    opacity: 0,
   },
-  "10%": {
+  "100%": {
     opacity: 0,
   },
 });
@@ -21,12 +21,13 @@ const fontOneAnimation = stylex.keyframes({
 const fadeInAnimation = stylex.keyframes({
   "0%": {
     opacity: 0,
+    visibility: "hidden",
   },
-  "10%": {
+  "5%": {
     opacity: 1,
     filter: `blur(50px)`,
   },
-  "20%": {
+  "8%": {
     opacity: 1,
   },
 });
@@ -49,19 +50,19 @@ export const styles = stylex.create({
     top: "8rem",
     left: "4rem",
     width: "600px",
-    height: "350px",
+    height: "auto",
     objectFit: "cover",
+    zIndex: 20,
   },
   fontOne: {
     position: "absolute",
     left: "2%",
-    top: "25%",
+    top: "40%",
     fontSize: text.h1,
-    zIndex: 1,
+    zIndex: 21,
     animationName: fontOneAnimation,
     animationDuration: "6s",
     animationFillMode: "forwards",
-    animationIterationCount: 1,
   },
   fontTwo: {
     position: "absolute",
@@ -80,6 +81,7 @@ export const styles = stylex.create({
     animationDuration: "6s",
     animationFillMode: "forwards",
     animationIterationCount: 1,
+    zIndex: 20,
   },
 
   dotsContainer: {
@@ -100,5 +102,6 @@ export const styles = stylex.create({
     width: "0.5rem",
     height: "0.5rem",
     borderRadius: "50%",
+    cursor: "pointer",
   },
 });
