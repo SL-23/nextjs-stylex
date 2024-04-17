@@ -7,6 +7,7 @@ import Collections from "@/components/Collections/Collections";
 import CopyrightBanner from "@/components/Copyright/CopyrightBanner";
 import ArrowButton from "@/components/ArrowButton/ArrowButton";
 import { spacing } from "./globalTokens.stylex";
+import Footer from "@/components/Footer/Footer";
 
 const Home = () => {
   const collectionRef = useRef<HTMLDivElement | null>(null);
@@ -24,6 +25,7 @@ const Home = () => {
       </div>
       <CopyrightBanner />
       <Collections ref={collectionRef} />
+      <Footer />
     </div>
   );
 };
