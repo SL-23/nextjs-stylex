@@ -1,7 +1,6 @@
 "use client";
 import stylex from "@stylexjs/stylex";
-
-import React, { useState, useRef } from "react";
+import React, { useRef } from "react";
 import HomeCarousel from "@/components/HomeCarousel/HomeCarousel";
 import Collections from "@/components/Collections/Collections";
 import CopyrightBanner from "@/components/Copyright/CopyrightBanner";

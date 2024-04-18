@@ -4,12 +4,17 @@ import stylex from "@stylexjs/stylex";
 
 export const styles = stylex.create({
   root: {
-    height: "30rem",
+    padding: spacing.sm,
     backgroundColor: colors.gray7,
   },
   title: {
-    margin: "1rem",
-    fontSize: text.h5,
+    fontSize: text.h4,
     color: "white",
+    marginBottom: spacing.sm,
+  },
+  itemsContainer: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-around",
   },
 });

@@ -1,7 +1,7 @@
+"use client";
 import { styles } from "./styles";
 import stylex from "@stylexjs/stylex";
 import Bird from "../../public/bird.png";
-import Flower from "../../public/flower.png";
 import Mountain from "../../public/mountain.png";
 import Eagle from "../../public/eagle.png";
 import Image from "next/image";
@@ -35,33 +35,6 @@ const HomeCarousel = () => {
   const [displayText, setDisplayText] = useState([true, false]);
 
   const imageRef = useRef<HTMLImageElement>(null);
-
-  useEffect(() => {
-    const imgObserver = new IntersectionObserver((entries) => {
-      console.log(activeIndex, entries[0].intersectionRatio);
-      if (activeIndex % 2 === 0 && entries[0].intersectionRatio === 0) {
-        console.log("SETT");
-        displayText[Math.floor(activeIndex / 2)] = true;
-      } else {
-        setTimeout(() => {
-          const newDisplayText = displayText.fill(false);
-          console.log({ newDisplayText });
-          setDisplayText(newDisplayText);
-        }, 1000);
-      }
-    });
-    imageRef.current && imgObserver.observe(imageRef.current as HTMLElement);
-    return () => {
-      imageRef.current &&
-        imgObserver.unobserve(imageRef.current as HTMLElement);
-    };
-  }, [activeIndex]);
-
-  useEffect(() => {
-    setInterval(() => {
-      setActiveIndex(activeIndex >= 3 ? 0 : activeIndex + 1);
-    }, 6000);
-  }, [activeIndex]);
 
   return (
     <div {...stylex.props(styles.root)}>

@@ -1,10 +1,10 @@
-"use client";
+import { pageStyles } from "../sharePageStyles";
 import stylex from "@stylexjs/stylex";
 
-const Gallery = () => {
+const GalleryPage = () => {
   return (
-    <div {...stylex.props(styles.root)}>
-      <h2>Gallery</h2>
+    <div {...stylex.props(pageStyles.subPageRoot, styles.root)}>
+      <h2>GalleryPage</h2>
     </div>
   );
 };
@@ -16,4 +16,4 @@ const styles = stylex.create({
   },
 });
 
-export default Gallery;
+export default GalleryPage;

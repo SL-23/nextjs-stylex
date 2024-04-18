@@ -16,7 +16,7 @@ const Footer = () => {
       </>
       <hr />
       <div {...stylex.props(styles.copyright)}>
-        <p>© Stephanie L. 2024</p>
+        <p>© Design and develop by Stephanie L. 2024</p>
         <div {...stylex.props(styles.icons)}>
           <LinkedIn />
           <Email />

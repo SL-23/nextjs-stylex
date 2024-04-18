@@ -22,9 +22,9 @@ export const styles = stylex.create({
     },
   },
   copyright: {
-    color: colors.gray2,
+    color: colors.gray3,
     alignSelf: "flex-end",
-    fontSize: text.sm,
+    fontSize: text.xs,
     fontFamily: "Raleway, sans-serif",
   },
   icons: {

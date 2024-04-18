@@ -26,7 +26,11 @@ const TopNavigation = () => {
         <a
           {...stylex.props(styles.section)}
           key={title}
-          href={title === "Home" ? "." : `/${title.toLowerCase()}`}
+          href={
+            title === "Home"
+              ? "."
+              : `/${title.split(" ").join("-").toLowerCase()}`
+          }
         >
           {title}
         </a>
