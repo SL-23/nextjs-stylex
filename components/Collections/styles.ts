@@ -14,7 +14,14 @@ export const styles = stylex.create({
   },
   itemsContainer: {
     display: "flex",
-    flexDirection: "row",
+    flexDirection: {
+      default: "row",
+      "@media (max-width: 1024px)": "column",
+    },
+    gap: {
+      default: "unset",
+      "@media (max-width: 1024px)": spacing.lg,
+    },
     justifyContent: "space-around",
   },
 });

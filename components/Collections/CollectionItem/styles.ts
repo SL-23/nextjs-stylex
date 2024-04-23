@@ -9,10 +9,19 @@ export const styles = stylex.create({
     alignItems: "center",
     color: "white",
     gap: spacing.xs,
-    fontSize: text.p,
+    fontSize: text.h5,
+    transition: "all 0.5s",
+    transitionTimingFunction: "ease-in",
+  },
+  hideItem: {
+    visibility: "hidden",
+    transform: `translateY(2rem)`,
   },
   img: {
-    width: "15rem",
+    width: {
+      default: "15rem",
+      "@media (max-width: 1024px)": "70%",
+    },
     height: "auto",
   },
 });

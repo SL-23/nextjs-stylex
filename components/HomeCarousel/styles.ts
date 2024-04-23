@@ -49,7 +49,10 @@ export const styles = stylex.create({
     position: "absolute",
     top: "8rem",
     left: "4rem",
-    width: "800px",
+    width: {
+      default: "50rem",
+      "@media (max-width: 1024px)": "20rem",
+    },
     maxHeight: "30rem",
     height: "auto",
     objectFit: "contain",
@@ -63,13 +66,13 @@ export const styles = stylex.create({
     fontSize: text.h1,
     zIndex: 21,
     animationName: fontOneAnimation,
-    animationDuration: "4s",
+    animationDuration: "2s",
     animationFillMode: "forwards",
   },
 
   slideAnimation: {
     animationName: fadeInAnimation,
-    animationDuration: "4s",
+    animationDuration: "2s",
     animationFillMode: "forwards",
     animationIterationCount: 1,
     zIndex: 20,

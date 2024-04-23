@@ -32,7 +32,11 @@ const Collections = React.forwardRef<HTMLDivElement, any>((props, ref) => {
       <p {...stylex.props(styles.title)}>Collections</p>
       <div {...stylex.props(styles.itemsContainer)}>
         {collectionItems.map((item) => (
-          <CollectionItem title={item.title} imgSrc={item.src} />
+          <CollectionItem
+            key={item.title}
+            title={item.title}
+            imgSrc={item.src}
+          />
         ))}
       </div>
     </div>
