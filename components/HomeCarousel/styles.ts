@@ -47,14 +47,16 @@ export const styles = stylex.create({
   },
   slide: {
     position: "absolute",
-    top: "8rem",
+    top: "10vh",
     left: "4rem",
-    width: {
-      default: "50rem",
-      "@media (max-width: 1024px)": "20rem",
-    },
-    maxHeight: "30rem",
-    height: "auto",
+    // width: {
+    //   default: "50rem",
+    //   "@media (max-width: 1024px)": "20rem",
+    // },
+    // maxHeight: "30rem",
+    // height: "auto",
+    maxWidth: "70vw",
+    height: "40vh",
     objectFit: "contain",
     alignContent: "flex-start",
     zIndex: 20,

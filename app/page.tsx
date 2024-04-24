@@ -37,7 +37,7 @@ const styles = stylex.create({
   },
   container: {
     width: "100%",
-    height: "40rem",
+    height: "60vh",
     display: "flex",
     justifyContent: "center",
   },
@@ -46,7 +46,7 @@ const styles = stylex.create({
     fontFamily: "Raleway, sans-serif",
     textDecoration: "underline 3px",
     fontWeight: 200,
-    top: "36rem",
+    top: "51vh",
     right: spacing.md,
     display: "flex",
     alignItems: "center",
