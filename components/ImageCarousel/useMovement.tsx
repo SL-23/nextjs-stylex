@@ -1,4 +1,0 @@
-// hook
-const useMovement = () => {
-  return {};
-};

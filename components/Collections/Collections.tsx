@@ -42,4 +42,7 @@ const Collections = React.forwardRef<HTMLDivElement, any>((props, ref) => {
     </div>
   );
 });
+
+Collections.displayName = "Collections";
+
 export default Collections;
