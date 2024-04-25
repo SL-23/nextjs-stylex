@@ -13,9 +13,9 @@ export const styles = stylex.create({
   },
   lightStyle: {
     background: "transparent",
-    color: "#222222",
+    color: colors.gray8,
     borderWidth: "1px",
-    borderColor: colors.gray0,
+    borderColor: colors.gray8,
     borderStyle: "solid",
   },
   darkStyle: {

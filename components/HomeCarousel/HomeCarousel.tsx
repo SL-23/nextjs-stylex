@@ -6,15 +6,15 @@ import Mountain from "../../public/mountain.png";
 import Eagle from "../../public/eagle.png";
 import Image from "next/image";
 import FanFlower from "../../public/IMG_3746.png";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 
 const imgSrcArr = [Mountain, FanFlower, Bird, Eagle];
 
 const textItems = [
-  <>Seeing Chinese art collections</>,
   <>
     Classic Chinese painting: <i>ink and color</i> on paper
   </>,
+  <>Seeing Chinese art collections</>,
 ];
 
 const CountDot = ({
@@ -32,7 +32,6 @@ const CountDot = ({
 
 const HomeCarousel = () => {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [displayText, setDisplayText] = useState([true, false]);
 
   const imageRef = useRef<HTMLImageElement>(null);
 
@@ -48,14 +47,14 @@ const HomeCarousel = () => {
             {...stylex.props(styles.slide)}
           />
         </div>
-        {displayText[Math.floor(activeIndex / 2)] && (
+        {activeIndex % 2 === 1 && (
           <p {...stylex.props(styles.fontOne)}>
             {textItems[Math.floor(activeIndex / 2)]}
           </p>
         )}
       </div>
       <div {...stylex.props(styles.dotsContainer)}>
-        {imgSrcArr.map((item, index) => (
+        {imgSrcArr.map((_, index) => (
           <CountDot
             onClick={() => {
               setActiveIndex(index);

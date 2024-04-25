@@ -18,9 +18,21 @@ const Footer = () => {
       <div {...stylex.props(styles.copyright)}>
         <p>© Design and develop by Stephanie L. 2024</p>
         <div {...stylex.props(styles.icons)}>
-          <LinkedIn />
-          <Email />
-          <GitHub />
+          <a
+            {...stylex.props(styles.iconLink)}
+            href="https://www.linkedin.com/in/stephanie-liu-0203/"
+          >
+            <LinkedIn />
+          </a>
+          <a
+            {...stylex.props(styles.iconLink)}
+            href="https://www.linkedin.com/in/stephanie-liu-0203/"
+          >
+            <Email />
+          </a>
+          <a {...stylex.props(styles.iconLink)} href="https://github.com/SL-23">
+            <GitHub />
+          </a>
         </div>
       </div>
     </div>

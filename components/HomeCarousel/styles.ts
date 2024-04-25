@@ -6,12 +6,9 @@ const fontOneAnimation = stylex.keyframes({
   "0%": {
     opacity: 1,
   },
-  "75%": {
+  "85%": {
     opacity: 1,
     filter: `blur(30px)`,
-  },
-  "80%": {
-    opacity: 0,
   },
   "100%": {
     opacity: 0,
@@ -49,26 +46,19 @@ export const styles = stylex.create({
     position: "absolute",
     top: "10vh",
     left: "4rem",
-    // width: {
-    //   default: "50rem",
-    //   "@media (max-width: 1024px)": "20rem",
-    // },
-    // maxHeight: "30rem",
-    // height: "auto",
     maxWidth: "70vw",
     height: "40vh",
     objectFit: "contain",
     alignContent: "flex-start",
-    zIndex: 20,
   },
   fontOne: {
     position: "absolute",
     left: "2%",
-    top: "40%",
+    top: "20%",
     fontSize: text.h1,
-    zIndex: 21,
+    zIndex: 1,
     animationName: fontOneAnimation,
-    animationDuration: "2s",
+    animationDuration: "4s",
     animationFillMode: "forwards",
   },
 
@@ -77,7 +67,6 @@ export const styles = stylex.create({
     animationDuration: "2s",
     animationFillMode: "forwards",
     animationIterationCount: 1,
-    zIndex: 20,
   },
 
   dotsContainer: {
@@ -86,6 +75,7 @@ export const styles = stylex.create({
     right: "2rem",
     gap: "0.5rem",
     top: "85%",
+    zIndex: 4,
   },
   activeDot: {
     background: colors.gray6,

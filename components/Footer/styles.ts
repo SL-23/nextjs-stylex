@@ -33,4 +33,10 @@ export const styles = stylex.create({
     justifyContent: "center",
     gap: spacing.xs,
   },
+  iconLink: {
+    color: {
+      default: colors.gray3,
+      ":hover": colors.gray0,
+    },
+  },
 });
